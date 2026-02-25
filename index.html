@@ -81,7 +81,7 @@
         .hero {
             margin-top: 70px;
             min-height: 85vh;
-            background: linear-gradient(135deg, var(--navy) 0%, #243B6A 50%, #1B2A4A 100%);
+            background: linear-gradient(rgba(27,42,74,0.75), rgba(27,42,74,0.85)), url('farmland.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -329,7 +329,7 @@
         /* =================== CATEGORIES =================== */
         .categories {
             padding: 100px 40px;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -338,60 +338,77 @@
             margin-bottom: 60px;
         }
 
-        .cat-grid {
+        .cat-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 20px;
         }
 
-        .cat-card {
+        .cat-item {
             background: var(--white);
             border-radius: 8px;
-            overflow: hidden;
+            padding: 32px;
+            text-align: center;
             box-shadow: 0 2px 20px rgba(0,0,0,0.06);
             transition: all 0.3s;
-            cursor: pointer;
+            border-left: 4px solid var(--red);
         }
 
-        .cat-card:hover {
-            transform: translateY(-6px);
+        .cat-item:hover {
+            transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.1);
         }
 
-        .cat-img {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
+        .cat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* =================== TEAMWORK =================== */
+        .teamwork {
+            padding: 0;
             position: relative;
         }
 
-        .cat-img-mustard { background: linear-gradient(135deg, #F5D76E 0%, #E8C547 100%); }
-        .cat-img-mayo { background: linear-gradient(135deg, #FFF8E7 0%, #F5ECD4 100%); }
-        .cat-img-pasta { background: linear-gradient(135deg, #F5DEB3 0%, #E8D096 100%); }
-        .cat-img-ketchup { background: linear-gradient(135deg, #E85D4A 0%, #C41E3A 100%); }
-        .cat-img-sauce { background: linear-gradient(135deg, #D4543A 0%, #B22222 100%); }
-        .cat-img-vinegar { background: linear-gradient(135deg, #E8D5A3 0%, #C4A96A 100%); }
-
-        .cat-label {
-            padding: 20px 24px;
-            text-align: center;
+        .teamwork-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
         }
 
-        .cat-label h3 {
+        .teamwork-img {
+            background: url('teamwork.png') center/cover no-repeat;
+            min-height: 400px;
+        }
+
+        .teamwork-text {
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .teamwork-text .section-tag {
+            color: var(--gold);
+            text-align: left;
+        }
+
+        .teamwork-text h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 4px;
+            font-size: clamp(28px, 3vw, 38px);
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.3;
         }
 
-        .cat-label p {
-            font-size: 13px;
-            color: var(--text-mid);
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .teamwork-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
         }
 
         /* =================== CTA / CONTACT =================== */
@@ -514,13 +531,21 @@
                 grid-template-columns: 1fr;
             }
 
-            .cat-grid {
+            .cat-list {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .teamwork-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .teamwork-img {
+                min-height: 300px;
             }
         }
 
         @media (max-width: 480px) {
-            .cat-grid {
+            .cat-list {
                 grid-template-columns: 1fr;
             }
         }
@@ -625,48 +650,24 @@
             <div class="section-tag">Our Products</div>
             <h2 class="section-title">Product Categories</h2>
         </div>
-        <div class="cat-grid">
-            <div class="cat-card">
-                <div class="cat-img cat-img-mustard">🟡</div>
-                <div class="cat-label">
-                    <h3>Mustard</h3>
-                    <p>Classic American Yellow & More</p>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-img cat-img-mayo">⚪</div>
-                <div class="cat-label">
-                    <h3>Mayonnaise</h3>
-                    <p>Rich & Creamy Varieties</p>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-img cat-img-pasta">🍝</div>
-                <div class="cat-label">
-                    <h3>Pasta</h3>
-                    <p>Premium Dried & Fresh</p>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-img cat-img-ketchup">🔴</div>
-                <div class="cat-label">
-                    <h3>Ketchup</h3>
-                    <p>America's Favorite Condiment</p>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-img cat-img-sauce">🍅</div>
-                <div class="cat-label">
-                    <h3>Pasta Sauce</h3>
-                    <p>Marinara, Alfredo & Beyond</p>
-                </div>
-            </div>
-            <div class="cat-card">
-                <div class="cat-img cat-img-vinegar">🫗</div>
-                <div class="cat-label">
-                    <h3>Vinegar</h3>
-                    <p>Apple Cider, White & Specialty</p>
-                </div>
+        <div class="cat-list">
+            <div class="cat-item"><h3>Mustard</h3></div>
+            <div class="cat-item"><h3>Mayonnaise</h3></div>
+            <div class="cat-item"><h3>Pasta</h3></div>
+            <div class="cat-item"><h3>Ketchup</h3></div>
+            <div class="cat-item"><h3>Pasta Sauce</h3></div>
+            <div class="cat-item"><h3>Vinegar</h3></div>
+        </div>
+    </section>
+
+    <!-- TEAMWORK -->
+    <section class="teamwork">
+        <div class="teamwork-inner">
+            <div class="teamwork-img"></div>
+            <div class="teamwork-text">
+                <div class="section-tag">Our Approach</div>
+                <h2>Partnership Built on Trust</h2>
+                <p>We believe in building long-term relationships with our producers and international partners. From sourcing to shipping, every step is handled with care, transparency, and a commitment to delivering the best American products to the world.</p>
             </div>
         </div>
     </section>
